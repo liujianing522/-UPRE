@@ -1,0 +1,41 @@
+#include <stdio.h>
+#include <string.h>
+
+struct Jiegouti 
+{
+    char name[50];
+    int age;
+    char major[50];
+    char id[20];
+    char time[10];
+};
+
+void displayInfo(const struct Jiegouti  *student);
+
+int main() 
+{
+    struct Jiegouti student= {"刘家宁",20, "计算机2402", "240210227", "14:30:59"};
+
+    char input[20];
+    printf("请输入（time或者student）：");
+    scanf("%s",input);
+
+    if (strcmp(input, "time") == 0) 
+	{
+        printf("%s\n", student.time);
+    } else if (strcmp(input, "student") == 0) 
+	{
+        displayInfo(&student);
+    } 
+	else 
+	{
+        printf("未知指令，请重新输入。\n");
+    }
+
+    return 0;
+}
+
+void displayInfo(const struct Jiegouti  *student) 
+{
+    printf("%s,%d,%s,%s\n", student->name, student->age, student->major, student->id);
+}
