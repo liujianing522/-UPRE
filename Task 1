@@ -1,0 +1,42 @@
+#include <stdio.h>
+#include <string.h>
+void getmata();
+int main() 
+{
+    printf("欢迎使用人机交互程序！请输入指令。\n");
+    printf("(age,name,id,major,class)\n");
+    getmata();
+    return 0;
+}
+
+void getmata() 
+{
+    char input[20];
+    fgets(input,sizeof(input),stdin);
+    input[strcspn(input,"\n")]='\0';
+
+    if(strcmp(input,"name")==0) 
+	{
+        printf("刘**家**宁\n");
+    } 
+	else if(strcmp(input,"class")==0) 
+	{
+        printf("计算机2402\n");
+    } 
+	else if (strcmp(input,"age")==0)
+	{
+        printf("20\n");
+    } 
+	else if (strcmp(input,"id")==0) 
+	{
+        printf("240210227\n");
+    } 
+	else if (strcmp(input,"major")==0) 
+	{
+        printf("计算机科学与技术\n");
+    } 
+	else 
+	{
+        printf("未知指令，请重新输入。\n");
+    }
+}
